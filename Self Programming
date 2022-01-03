@@ -1,0 +1,98 @@
+package selfProgramming;
+
+public class Bank {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		boolean access = true;
+		boolean levelOne = true;
+		int counter = 0;
+		String cardNo;
+		String password;
+		int looping = 1;
+		int num1;
+		int num2;
+		int total;
+		int response;
+		String name;
+		String amount;
+		
+		System.out.println("Welcome to Aman Bank");
+		Scanner input = new Scanner(System.in);
+		System.out.print("Please insert your name : ");
+		name = input.nextLine();
+		
+		do {
+			System.out.print("Please enter your card ID : ");
+			cardNo = input.next();
+			System.out.print("Please enter your password : ");
+			password = input.next();
+			
+				if (cardNo.equals("999999") && password.equals("999"))
+			{
+				System.out.println("Access Granted");	
+				System.out.print("Check Account Balance\n");
+				System.out.println("Please enter 1\n\n");
+				System.out.print("Deposit Money\n");
+				System.out.println("Please enter 2\n\n");
+				System.out.print("Withdraw Money\n");
+				System.out.println("Please enter 3\n\n");
+				System.out.print("Transfer Money\n");
+				System.out.println("Please enter 4\n\n");
+				System.out.println("What would you like to do next?");
+				response=input.nextInt();
+				
+				if (response == 1) {
+					System.out.println("Checking Amount Balance...Please Wait");
+					System.out.println("You have RM500 in you account");
+				} else if (response == 2) {
+					System.out.println("How much would you like to deposit?");
+					 num1=input.nextInt();
+					total = 500 + num1;
+					System.out.println("You have RM" + total + " after you deposit. Thank you.");
+				} else if (response == 3) {
+					System.out.println("How much would you like to withdraw?");
+					num1=input.nextInt();
+					total = 500 - num1;
+					System.out.println("You have RM" + total + " left after your withdraw. Thank you.");
+				} else if (response == 4)
+				{
+					System.out.println("How much would you like to transfer?");
+					num2=input.nextInt();
+					if (num2 > 500) {
+						System.out.println("Error! You have overdraw.");
+					}
+					else {
+					total = 500 - num2;
+					System.out.println("You have RM" + total + " left after your transfer. Thank you.");
+					}
+				} 
+				else 
+				{
+					System.out.println("Invalid");
+				}
+				System.exit(0);
+			}
+				else
+				{
+					System.out.println("Access Failed");	
+				}
+				counter = counter +1;
+				System.out.println("Right Here!!! Counter :"+counter);	
+				
+				
+				
+				if (counter >= 3) 
+				{
+					access = false;
+					System.out.println("3 tries exceeded! You are not allowed to log in.");
+					System.exit(0);
+				}
+				
+				
+			}while(access==true);	
+
+	}
+
+}
